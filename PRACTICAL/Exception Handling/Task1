@@ -1,0 +1,52 @@
+package exception_handling;
+
+import java.util.Scanner;
+
+public class Input_ex {
+	String u;
+	String pass;
+	void check1(String pass) throws Exception {
+		this.pass=pass;
+		int l = pass.length();
+		try {
+			if (l>8 && pass.matches("[a-zA-Z]+")) {
+				System.out.println("Valid Password : "+pass);
+			}
+			else {
+				throw new Exception("Invalid Password");
+			}
+			
+		}catch(Exception e) {
+			System.out.println("This is an exception"+e);
+		}
+	}
+	void check2(String u) {
+		this.u=u;
+		int c = u.length();
+		try {
+			if(c>=4) {
+				System.out.println("Valid user-id : "+u);
+			}
+			else {
+				throw new Exception("Invalid User-id");
+			}
+		}catch(Exception d) {
+			System.out.println("This is an exception"+d);
+		}
+	}
+	
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Input_ex v = new Input_ex();
+		Scanner q  = new Scanner(System.in);
+		System.out.println("Enter user-id : ");
+		String a = q.nextLine();
+		v.check2(a);
+		System.out.println("Enter password : ");
+		String b = q.nextLine();
+		v.check1(b);
+		
+	}
+
+}
